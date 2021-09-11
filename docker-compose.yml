@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  jupyter_server:
+    build: .
+    container_name: jupyter_notebook
+    ports:
+      - '8888:8888'
+    environment:
+      - PASSWORD=
+    volumes:
+      - /home/user/data_folder/jupyter/:/home/mchesnokov/
+
+
+  #pwr-postgres:
+    #image: postgres:11
+    #container_name: pwr-postgres
+    #restart: always
+    #ports:
+    #  - '5432:5432'
+    #volumes:
+    #  - /home/user/data_folder/postgres_data:/var/lib/postgresql/data/
+    #environment:
+    #  - POSTGRES_USER=postgres
+    #  - POSTGRES_PASSWORD=postgres
+    #  - POSTGRES_DB=db
+
+  #pwr-rabbitmq:
+  # image: rabbitmq:3.8.14-management
+  #  container_name: pwr-rabbitmq
+  #  hostname: pwr-rabbitmq
+  #  restart: always
+  #  environment:
+  #    - RABBITMQ_DEFAULT_USER=rabbitmq
+  #    - RABBITMQ_DEFAULT_PASS=rabbitmq
+  #  ports:
+  #    - '5672:5672'
+  #    - '15672:15672'
